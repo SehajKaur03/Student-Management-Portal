@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin - All Students</title>
+</head>
+<body>
+    <h1>Student Management System</h1>
+    <h2>Admin Panel - All Students</h2>
+
+    <a href="/add">+ Add New Student</a>
+    <br><br>
+
+    <table border="1" cellpadding="8">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Class</th>
+            <th>Maths</th>
+            <th>Science</th>
+            <th>English</th>
+            <th>Update</th>
+            <th>Delete</th>
+        </tr>
+
+        <!-- TODO 1: loop over every student here using Jinja -->
+        <!-- {% for student in students %}  ... {% endfor %} -->
+
+        {% for student in students %}
+        <tr>
+            <!-- Each row is ONE edit form that posts to /update/<id> -->
+            <form action="/update/{{ student.id}}" method="POST">
+                <td>{{ student.id }}</td>
+
+                <td><input type="text" name="name" value="{{ student.name }}"></td>
+                <td><input type="number" name="age" value="{{ student.age }}"></td>
+                <td><input type="text" name="student_class" value="{{ student.cls }}"></td>
+
+                <!-- TODO 2: she adds the same kind of input boxes for
+                     maths, science and english here -->
+                <td><input type="number" name="maths" value="{{ student.maths }}"></td>
+                <td><input type="number" name="science" value="{{ student.science }}"></td>
+                <td><input type="number" name="english" value="{{ student.english }}"></td>
+
+                <td><input type="submit" value="Save"></td>
+            </form>
+
+            <!-- separate small form just for delete -->
+            <td>
+                <form action="/delete/{{ student.id }}" method="POST">
+                    <input type="submit" value="Delete">
+                </form>
+            </td>
+        </tr>
+        {% endfor %}
+
+    </table>
+</body>
+</html>
