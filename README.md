@@ -86,6 +86,8 @@ The `student.py` file demonstrates three core OOP concepts:
 | `/update/<id>` | POST | Update one student's details |
 | `/delete/<id>` | POST | Delete one student |
 
+* Updates and deletes should use tailored methods like PUT or DELETE however due to HTML form limitations only a GET and POST can be achieved.
+
 ## Setup and Run
 
 ### Prerequisites
