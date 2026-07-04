@@ -4,6 +4,29 @@ A web-based Student Management System built with **Flask** and **MS SQL Server**
 
 This project was built to practice core web development concepts: object-oriented programming, Flask routing, database integration with SQLAlchemy, and CRUD operations (Create, Read, Update, Delete).
 
+```mermaid
+flowchart LR
+
+    User[Admin User] --> Web[Flask Web App]
+
+    Web --> Routes[Flask Routes]
+
+    Routes --> ORM[SQLAlchemy ORM]
+
+    ORM --> DB[(MS SQL Server)]
+
+
+
+    Routes --> CRUD[CRUD Operations]
+
+    CRUD --> Add[Create]
+
+    CRUD --> View[Read]
+
+    CRUD --> Edit[Update]
+
+    CRUD --> Delete[Delete]
+```
 ## Features
 
 - **Add students** through a web form (name, age, class, and marks for Maths, Science, English)
